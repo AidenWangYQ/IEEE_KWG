@@ -126,11 +126,11 @@ def concatenate_text(recording):
 
 def ai_generate_full_summary(recording):
     # TODO: Implement the OpenAI
-    return "This is supposed to be the full summary"
+    recording.full_summary = "This is supposed to be the full summary"
 
 def ai_generate_options(recording):
     # TODO: Implement the OpenAI
-    return ["These are supposed to be the options (1)", "These are supposed to be the options (2)", "These are supposed to be the options (3)"]
+    recording.options["options"] = ["These are supposed to be the options (1)", "These are supposed to be the options (2)", "These are supposed to be the options (3)"]
 
 @app.get("/")
 def index():
