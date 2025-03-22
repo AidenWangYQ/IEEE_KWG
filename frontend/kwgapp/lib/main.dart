@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'context.dart';
+import 'discussion.dart';
+import 'review.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,9 +26,9 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue, // Button color (Blue)
+            backgroundColor: Colors.black, // Button color (Black)
             foregroundColor: Colors.white, // Text color on buttons (White)
-            minimumSize: Size(120, 50),
+            minimumSize: Size(200, 50),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
@@ -42,46 +45,88 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),  // Padding around the content
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'How can we help?',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
+      body: Stack(
+        children: [
+          // Blue Sidebar on the right
+          Positioned.fill(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: Container(
+                width: 250,
+                color: Colors.cyan,  // Blue sidebar color
               ),
-              SizedBox(height: 40),
-              Row(
+            ),
+          ),
+          // Main Content
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Center(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      // Handle Context button press
-                    },
-                    child: Text('Context'),
+                  // Text at the top
+                  Text(
+                    'Hi, I am KWGmate.\nPleased to be working with you today!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                   ),
-                  SizedBox(width: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Handle Discussion button press
-                    },
-                    child: Text('Discussion'),
-                  ),
-                  SizedBox(width: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Handle Review button press
-                    },
-                    child: Text('Review'),
+                  SizedBox(height: 40),
+                  // Buttons arranged in a column with space between
+                  Column(
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ContextPage()),
+                          );
+                        },
+                        child: Text('Contextualise'),
+                      ),
+                      SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DiscussionPage()),
+                          );
+                        },
+                        child: Text('Discuss'),
+                      ),
+                      SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ReviewPage()),
+                          );
+                        },
+                        child: Text('Review'),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
+          // Brought to you by KWG text at the bottom
+          Positioned(
+            bottom: 20,
+            left: 16,
+            child: Text(
+              'Brought to you by KWG',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
