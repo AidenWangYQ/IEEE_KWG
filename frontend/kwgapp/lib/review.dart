@@ -1,71 +1,175 @@
 import 'package:flutter/material.dart';
 
 class ReviewPage extends StatelessWidget {
+  const ReviewPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Review'),
+        title: Text(
+          'Review your team\'s discussion here.',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 50.0), // More padding for wider buttons
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ElevatedButton(
               onPressed: () {
-                // Handle the action
+                // Trigger "Filter" pop-up for Summary 1
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text("Filter"),
+                      content: Text("Summary 1 details here."),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('Close'),
+                        ),
+                      ],
+                    );
+                  },
+                );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,  // Red button color
-                minimumSize: Size(200, 50),
+                backgroundColor: Colors.black,
+                minimumSize: Size(200, 60), // Button width
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(30), // Rounded corners
                 ),
-              ),
-              child: Text('Start conversation'),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // Handle the action
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,  // Red button color
-                minimumSize: Size(200, 50),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              child: Text('Generate opinion'),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // Handle the action
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,  // Red button color
-                minimumSize: Size(200, 50),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              child: Text('End conversation'),
-            ),
-            SizedBox(height: 40),
-            Container(
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.black),
+                padding: EdgeInsets.symmetric(vertical: 15), // Adequate padding
               ),
               child: Text(
-                'Review content displayed here.',
-                style: TextStyle(fontSize: 18, color: Colors.black),
+                'Summary 1',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
+              ),
+            ),
+            SizedBox(height: 20), // Space between buttons
+            ElevatedButton(
+              onPressed: () {
+                // Trigger "Filter" pop-up for Summary 2
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text("Filter"),
+                      content: Text("Summary 2 details here."),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('Close'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                minimumSize: Size(200, 60), // Button width
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30), // Rounded corners
+                ),
+                padding: EdgeInsets.symmetric(vertical: 15), // Adequate padding
+              ),
+              child: Text(
+                'Summary 2',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
+              ),
+            ),
+            SizedBox(height: 20), // Space between buttons
+            ElevatedButton(
+              onPressed: () {
+                // Trigger "Filter" pop-up for Summary 3
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text("Filter"),
+                      content: Text("Summary 3 details here."),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('Close'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                minimumSize: Size(200, 60), // Button width
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30), // Rounded corners
+                ),
+                padding: EdgeInsets.symmetric(vertical: 15), // Adequate padding
+              ),
+              child: Text(
+                'Summary 3',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
+              ),
+            ),
+            SizedBox(height: 20), // Space between buttons
+            ElevatedButton(
+              onPressed: () {
+                // Trigger "Filter" pop-up for Checkpoints
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text("Filter"),
+                      content: Text("Checkpoint details here."),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('Close'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                minimumSize: Size(200, 60), // Button width
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30), // Rounded corners
+                ),
+                padding: EdgeInsets.symmetric(vertical: 15), // Adequate padding
+              ),
+              child: Text(
+                'Checkpoints',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
+              ),
+            ),
+            SizedBox(height: 40),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                'Brought to you by KWG',
+                style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                ),
               ),
             ),
           ],

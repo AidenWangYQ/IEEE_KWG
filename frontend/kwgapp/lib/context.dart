@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ContextPage extends StatelessWidget {
+  const ContextPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
